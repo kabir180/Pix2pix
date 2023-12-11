@@ -12,7 +12,7 @@ IMAGE_SIZE = 256
 CHANNELS_IMG = 3
 L1_LAMBDA = 100
 LAMBDA_GP = 10
-NUM_EPOCHS = 500
+NUM_EPOCHS = 100
 LOAD_MODEL = False
 SAVE_MODEL = False
 CHECKPOINT_DISC = "disc.pth.tar"
@@ -24,8 +24,7 @@ both_transform = A.Compose(
 
 transform_only_input = A.Compose(
     [
-        A.HorizontalFlip(p=0.5),
-        A.ColorJitter(p=0.2),
+        A.ColorJitter(p=0.1),
         A.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5], max_pixel_value=255.0,),
         ToTensorV2(),
     ]
